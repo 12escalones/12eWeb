@@ -1,0 +1,141 @@
+@import '../../../styles/variables';
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+:host .home-container {
+  width: 100%;
+  padding: 48px 28px;
+  font-family: 'Abel', sans-serif;
+  color: $color-secondary;
+  text-align: center;
+  box-sizing: border-box;
+
+  /* Cards */
+  .cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+
+    .card {
+      box-sizing: border-box; // importantísimo para evitar overflow
+      flex: 1 1 calc((100% - 40px) / 3 - 0.01px); // pequeña reducción para eliminar scroll
+      height: 260px;
+      border-radius: 18px;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+      }
+
+      .card-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border-radius: 18px;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.6s ease;
+      }
+
+      .card-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+
+        h2 {
+          font-family: 'ChaletComprime', sans-serif;
+          font-size: 2.16rem;
+          margin-bottom: 10px;
+          color: #fff;
+        }
+
+        p {
+          font-size: 1.32rem;
+          color: #fff;
+        }
+      }
+    }
+
+    .card.apoyo .card-bg {
+      background: linear-gradient(135deg, $color-primary, lighten($color-primary, 15%));
+    }
+
+    .card.idiomas .card-bg {
+      background: linear-gradient(135deg, darken($color-primary, 10%), lighten($color-primary, 10%));
+    }
+
+    .card.psicologia .card-bg {
+      background: linear-gradient(135deg, $color-secondary, lighten($color-secondary, 20%));
+    }
+  }
+
+  /* Texto de presentación */
+  .service-description {
+    margin-top: 48px;
+    text-align: justify;
+    line-height: 2.04;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+
+    h1 {
+      font-size: 3.36rem;
+      color: $color-primary;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      color: $color-primary;
+      margin-top: 48px;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      color: darken($color-secondary, 10%);
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 1.44rem;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :host .cards-container .card {
+    flex: 1 1 calc((100% - 20px) / 2 - 0.01px); // 2 cards, sin scroll
+    height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  :host .cards-container .card {
+    flex: 1 1 100%;
+    height: auto;
+  }
+
+  :host .service-description {
+    text-align: center;
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 1.92rem; }
+    h3 { font-size: 1.56rem; }
+    p { font-size: 1.32rem; }
+  }
+}

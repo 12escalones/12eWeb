@@ -1,0 +1,40 @@
+@import '../../../styles/variables';
+
+.about-container {
+  background-color: #fff; /* fondo blanco */
+  min-height: 100vh;
+  padding: 48px 24px;      // antes 40px 20px -> 1.2x
+  font-family: 'Abel', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+
+  .about-content {
+    width: 100%;
+    text-align: justify;
+    line-height: 2.28;      // antes 1.9 -> 1.2x
+    color: #1a1a1a;
+
+    p {
+      font-size: 1.62rem;    // antes 1.35rem -> 1.2x
+      margin-bottom: 30px;   // antes 25px -> 1.2x
+    }
+
+    .highlight {
+      color: #E75F00;       // reemplaza $color-primary
+      font-weight: bold;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 24px 18px;     // antes 20px 15px -> 1.2x
+
+    .about-content p {
+      font-size: 1.44rem;   // antes 1.2rem -> 1.2x
+      line-height: 2.04;    // antes 1.7 -> 1.2x
+    }
+  }
+}
+
