@@ -17,18 +17,24 @@
       </li>
       <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contacto</a></li>
     </ul>
-     <!-- LOGO AL FINAL -->
-  <div class="sidebar-footer">
-    <img src="assets/images/logo.png" alt="12Escalones Logo">
-  </div>
+
+    <!-- Logo al final -->
+    <div class="sidebar-footer">
+      <img src="assets/images/logo.png" alt="12Escalones Logo">
+    </div>
   </nav>
 
   <!-- Main Right Content -->
   <div class="right-container">
-    <!-- Header con imagen -->
+    <!-- Header con imagen responsive -->
     <header class="top-header">
-      <img src="assets/images/foto-academia.png"  width="300">
+      <picture>
+        <!-- Versión móvil -->
+        <source media="(max-width: 480px)" srcset="assets/images/foto-academia-movil.png">
 
+        <!-- Tablet y escritorio -->
+        <img src="assets/images/foto-academia.png" alt="12 Escalones Centro Educativo" class="header-img">
+      </picture>
     </header>
 
     <!-- Main Content -->

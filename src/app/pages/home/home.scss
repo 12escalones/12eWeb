@@ -17,14 +17,15 @@
   .cards-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;     // <--- CORREGIDO
+    justify-content: center;
     gap: 20px;
     margin-bottom: 48px;
 
     .card {
       box-sizing: border-box;
-      min-width: 0;              // <--- CORREGIDO
-      flex: 1 1 calc((100% - 40px) / 3 - 0.01px);
+      min-width: 0;
+      flex: 1 1 min(250px, 100%);
+      max-width: 100%;
       height: 260px;
       border-radius: 18px;
       position: relative;
@@ -118,23 +119,39 @@
   }
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
+/* Breakpoints modernos */
+
+/* Escritorio: 3 tarjetas por fila */
+@media (min-width: 1025px) {
   :host .cards-container .card {
-    flex: 1 1 calc((100% - 20px) / 2 - 0.01px);
+    flex: 1 1 min(250px, 33%);
+    max-width: 33%;
     height: 260px;
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet: 2 tarjetas por fila */
+@media (min-width: 481px) and (max-width: 1024px) {
+  :host .cards-container .card {
+    flex: 1 1 min(45%, 100%);
+    max-width: 45%;
+    height: 260px;
+  }
+}
+
+/* Móvil real: 1 tarjeta por fila */
+@media (max-width: 480px) {
   :host .cards-container {
-    gap: 16px;                              // <--- NUEVO
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   :host .cards-container .card {
     flex: 1 1 100%;
-    max-width: 100%;                         // <--- NUEVO
+    max-width: 100%;
     height: auto;
+    min-width: 0;
   }
 
   :host .service-description {
@@ -145,4 +162,3 @@
     p { font-size: 1.32rem; }
   }
 }
-
